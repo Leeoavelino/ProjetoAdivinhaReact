@@ -24,7 +24,7 @@ function App() {
 
   const [pickedWord, setPickedWord] = useState('')  //recebe a palavra
   const [pickedCategory, setPickedCategory] = useState('') //recebe a categoria
-  const [letters, setLetters] = useState([]) //lista de letras que começa vazia
+  const [letters, setLetters] = useState([]) //lista de letras que começa uma lista vazia. array vazio
 
   //aops declarar passsar todos esses estados para o componente de games
   const [guessedLetters, setGuessedLetters] = useState([]) //letras adivinhadas
@@ -38,7 +38,7 @@ function App() {
     const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]
     console.log(category)
 
-    //retorna uma palavra aleatorio da categoria acima
+    //retorna uma palavra aleatorio dentro da categoria selecionada acima
     const word = words[category][Math.floor(Math.random() * words[category].length)]
     console.log(word)
 
@@ -113,7 +113,6 @@ function App() {
       }
     }, [guesses])
 
-
     useEffect(() => {
 
       const uniqueLetters = [... new Set(letters)]
@@ -130,16 +129,10 @@ function App() {
 
     }, [guessedLetters, letters, startGame])
 
-
-
-    
   //retornar para o inciio
   const retry = () => {
-
     setScore(0)
     setGuesses(guessesQty)
-
-
     setGameStage(stages[0].name) //voltamos para o estagio inicial do jogo
   }
 

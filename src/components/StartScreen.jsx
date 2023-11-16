@@ -1,6 +1,6 @@
 import './StartScreen.css'
 
-export default function StartScreen( {startGame} ){
+export default function StartScreen({startGame}){
     return(
         <div className='start'>
 
